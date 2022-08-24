@@ -7,7 +7,7 @@ class CustomAppMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: avoid_print
-    print('Appbar created');
+    // print('Appbar created');
     return LayoutBuilder(
       builder: (_, BoxConstraints constraints) {
         return (constraints.maxWidth > 440)
@@ -55,6 +55,15 @@ class _TabletDesktopMenu extends StatelessWidget {
 
             myColor: Colors.black,
           ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            buttonText: 'Stateful 24',
+            // onPressed: () => Navigator.pushNamed(context, '/otherPage'),
+            onPressed: () =>
+                locator<NavigationService>().navigateTo('/stateful/24'),
+
+            myColor: Colors.black,
+          ),
         ],
       ),
     );
@@ -97,6 +106,13 @@ class _MobileMenu extends StatelessWidget {
             // onPressed: () => Navigator.pushNamed(context, '/otherPage'),
             onPressed: () => locator<NavigationService>().navigateTo('/abc123'),
 
+            myColor: Colors.black,
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            buttonText: 'Stateful 24',
+            onPressed: () =>
+                locator<NavigationService>().navigateTo('/stateful/24'),
             myColor: Colors.black,
           ),
         ],

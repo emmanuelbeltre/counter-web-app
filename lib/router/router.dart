@@ -10,9 +10,13 @@ class Flurorouter {
   static void configureRoutes() {
     router.define('/',
         handler: _counterHandler, transitionType: TransitionType.fadeIn);
+
     router.define('/stateful',
-        handler: _counterStatefulHandler,
-        transitionType: TransitionType.fadeIn);
+        handler: _counterHandler, transitionType: TransitionType.fadeIn);
+
+    router.define('/stateful/:base',
+        handler: _counterHandler, transitionType: TransitionType.fadeIn);
+
     router.define('/provider',
         handler: _counterProviderHandler,
         transitionType: TransitionType.fadeIn);
@@ -21,14 +25,19 @@ class Flurorouter {
   }
 
 //Handlers o manejadores
-  static Handler _counterHandler =
-      new Handler(handlerFunc: (context, params) => CounterView());
+  static Handler _counterHandler = new Handler(handlerFunc: (context, params) {
+    print(params['base']?[0]);
+    print(params);
+    return CounterView();
+  });
+
 //Handlers o manejadores
-  static Handler _counterStatefulHandler =
-      new Handler(handlerFunc: (context, params) => CounterView());
-//Handlers o manejadores
+
+//Hand
+//lers o manejadores
   static Handler _counterProviderHandler =
       new Handler(handlerFunc: (context, params) => CounterProviderView());
+
   static Handler _pageNotFoundHandler =
       new Handler(handlerFunc: (context, params) => View404());
 }
