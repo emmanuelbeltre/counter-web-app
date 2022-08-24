@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:fluro/fluro.dart';
 
 import 'package:bases_web/ui/views/counter_provider_view.dart';
@@ -21,6 +23,9 @@ class Flurorouter {
         handler: _counterProviderHandler,
         transitionType: TransitionType.fadeIn);
 
+    router.define('/dashboard/users/:userid/:roleid',
+        handler: _dashboardUserHandler, transitionType: TransitionType.fadeIn);
+
     router.notFoundHandler = _pageNotFoundHandler;
   }
 
@@ -41,6 +46,14 @@ class Flurorouter {
     print(params);
 
     return CounterProviderView(base: params['q']?[0] ?? '10');
+  });
+
+  // ignore: prefer_final_fields
+  static Handler _dashboardUserHandler =
+      Handler(handlerFunc: (context, params) {
+    print(params);
+
+    return View404();
   });
 
   static Handler _pageNotFoundHandler =
