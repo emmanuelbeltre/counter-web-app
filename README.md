@@ -1,6 +1,7 @@
 # bases_web
 
 A new Flutter project.
+Counter page with provider.
 
 ## Getting Started
 
