@@ -35,8 +35,13 @@ class Flurorouter {
 
 //Hand
 //lers o manejadores
+  // ignore: prefer_final_fields
   static Handler _counterProviderHandler =
-      new Handler(handlerFunc: (context, params) => CounterProviderView());
+      Handler(handlerFunc: (context, params) {
+    print(params);
+
+    return CounterProviderView(base: params['q']?[0] ?? '10');
+  });
 
   static Handler _pageNotFoundHandler =
       new Handler(handlerFunc: (context, params) => View404());

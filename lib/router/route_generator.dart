@@ -18,7 +18,11 @@ class RouteGenerator {
             '/stateful');
 
       case '/provider':
-        return _fadeRoute(CounterProviderView(), '/povider');
+        return _fadeRoute(
+            CounterProviderView(
+              base: '5',
+            ),
+            '/povider');
 
       default:
         return _fadeRoute(View404(), '/404');
