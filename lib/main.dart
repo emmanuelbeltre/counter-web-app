@@ -24,6 +24,11 @@ class MyApp extends StatelessWidget {
       // onGenerateRoute: RouteGenerator.generateRoute,
       onGenerateRoute: Flurorouter.router.generator,
       navigatorKey: locator<NavigationService>().navigatorKey,
+      // themeMode: ThemeMode.dark,
+      darkTheme: ThemeData.dark().copyWith(
+          // scaffoldBackgroundColor: Colors.grey
+          ),
+
       builder: (_, child) {
         return MainLayoutPage(
           child: child ?? Container(),

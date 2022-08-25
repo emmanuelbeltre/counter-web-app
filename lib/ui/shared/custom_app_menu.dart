@@ -10,7 +10,7 @@ class CustomAppMenu extends StatelessWidget {
     // print('Appbar created');
     return LayoutBuilder(
       builder: (_, BoxConstraints constraints) {
-        return (constraints.maxWidth > 440)
+        return (constraints.maxWidth > 540)
             ? _TabletDesktopMenu()
             : _MobileMenu();
       },
@@ -122,6 +122,14 @@ class _MobileMenu extends StatelessWidget {
             buttonText: 'Stateful 24',
             onPressed: () =>
                 locator<NavigationService>().navigateTo('/stateful/24'),
+            myColor: Colors.black,
+          ),
+          CustomFlatButton(
+            buttonText: 'Provider 200',
+            // onPressed: () => Navigator.pushNamed(context, '/otherPage'),
+            onPressed: () =>
+                locator<NavigationService>().navigateTo('/provider?q=200'),
+
             myColor: Colors.black,
           ),
         ],
